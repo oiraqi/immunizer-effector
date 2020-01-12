@@ -10,7 +10,6 @@ import net.bytebuddy.description.method.ParameterDescription;
 import net.bytebuddy.description.type.TypeDescription;
 import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.agent.builder.AgentBuilder.Transformer;*/
-import net.bytebuddy.asm.Advice;
 /*import net.bytebuddy.implementation.bytecode.assign.Assigner;
 import net.bytebuddy.matcher.ElementMatcher;
 import net.bytebuddy.matcher.ElementMatcher.Junction;
@@ -41,39 +40,5 @@ public class ResponseAgent {
 				}*/
 			}
 		}).start();
-	}
-
-	/*private static class ResponseTransformer implements Transformer {
-
-		Junction<? super MethodDescription> matcher;
-
-		public ResponseTransformer(Junction<? super MethodDescription> matcher) {
-			ElementMatcher<Iterable<? extends ParameterDescription>> parameterMatcher = parameterDescriptions -> {
-				return (parameterDescriptions != null && parameterDescriptions.iterator().hasNext());
-			};
-
-			this.matcher = matcher.and(isPublic()).and(hasParameters(parameterMatcher));
-		}
-
-		@Override
-		public DynamicType.Builder<?> transform(final DynamicType.Builder<?> builder,
-				final TypeDescription typeDescription, final ClassLoader classLoader, final JavaModule module) {
-
-			return builder.method(matcher).intercept(Advice.to(ResponseAdvice.class));
-		}
-	}*/
-
-	public static class ResponseAdvice {
-
-		@Advice.OnMethodEnter
-		public static void onEnter(@Advice.Origin String fullyQualifiedMethodName,
-				@Advice.AllArguments Object[] params) throws Exception {
-
-			throw new Exception();
-		}
-
-		public static void onExit() {			
-			// Do nothing here
-		}
 	}
 }
