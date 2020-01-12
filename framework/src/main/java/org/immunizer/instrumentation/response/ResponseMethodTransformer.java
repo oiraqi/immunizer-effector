@@ -12,11 +12,11 @@ import net.bytebuddy.matcher.ElementMatcher.Junction;
 
 import static net.bytebuddy.matcher.ElementMatchers.*;
 
-class ResponseTransformer implements Transformer {
+class ResponseMethodTransformer implements Transformer {
 
     Junction<? super MethodDescription> matcher;
 
-    public ResponseTransformer(Junction<? super MethodDescription> matcher) {
+    public ResponseMethodTransformer(Junction<? super MethodDescription> matcher) {
         ElementMatcher<Iterable<? extends ParameterDescription>> parameterMatcher = parameterDescriptions -> {
             return (parameterDescriptions != null && parameterDescriptions.iterator().hasNext());
         };

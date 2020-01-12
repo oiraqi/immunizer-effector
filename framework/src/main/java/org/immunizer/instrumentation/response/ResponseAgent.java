@@ -1,43 +1,55 @@
 package org.immunizer.instrumentation.response;
 
 import java.lang.instrument.Instrumentation;
-/*import java.time.Duration;
+import java.time.Duration;
 
-import net.bytebuddy.dynamic.DynamicType;
-import net.bytebuddy.utility.JavaModule;
-import net.bytebuddy.description.method.MethodDescription;
-import net.bytebuddy.description.method.ParameterDescription;
-import net.bytebuddy.description.type.TypeDescription;
 import net.bytebuddy.agent.builder.AgentBuilder;
-import net.bytebuddy.agent.builder.AgentBuilder.Transformer;*/
-/*import net.bytebuddy.implementation.bytecode.assign.Assigner;
-import net.bytebuddy.matcher.ElementMatcher;
-import net.bytebuddy.matcher.ElementMatcher.Junction;
+import net.bytebuddy.agent.builder.AgentBuilder.Identified.Extendable;
+import net.bytebuddy.agent.builder.AgentBuilder.Identified.Narrowable;
 
 import static net.bytebuddy.matcher.ElementMatchers.*;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;*/
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 
 public class ResponseAgent {
 	public static void premain(String arg, Instrumentation inst) throws Exception {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Response Microagent Launched!");
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-		// AgentBuilder builder = new AgentBuilder.Default().ignore(nameStartsWith("net.bytebuddy."));
-
+		
+		AlarmManager alarmManager = AlarmManager.getSingleton();
 		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				/*AlarmConsumer consumer = new AlarmConsumer();
+				AlarmConsumer consumer = new AlarmConsumer();
 				ConsumerRecords<String, Alarm> records;
 				while (true) {
 					records = consumer.poll(Duration.ofSeconds(60));
+					AgentBuilder builder = new AgentBuilder.Default().ignore(nameStartsWith("net.bytebuddy."));
+					Extendable extendable = null;
+					Narrowable narrowable = null;
 					for (ConsumerRecord<String, Alarm> record : records) {
-						
+						if (!alarmManager.isProtected(record.value().getCallStackId())) {
+							if (narrowable == null) {
+								narrowable = builder.type(named(record.value().getFullyQualifiedClassName()));
+							} else {
+								narrowable = narrowable.or(named(record.value().getFullyQualifiedClassName()));
+							}
+							if (extendable == null) {
+								extendable = narrowable.transform(new ResponseMethodTransformer(named(record.value().getName())));
+							} else {
+								extendable = extendable.transform(new ResponseMethodTransformer(named(record.value().getName())));
+							}
+							
+						}
+						alarmManager.addAlarm(record.value());
 					}
-				}*/
+					if (extendable != null) {
+						extendable.installOn(inst);
+					}
+				}
 			}
 		}).start();
 	}
