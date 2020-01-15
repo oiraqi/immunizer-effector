@@ -23,8 +23,4 @@ public class ResponseMethodAdvice {
             throw new Exception();
         }
     }
-
-    public static void onExit() {
-        // Do nothing here
-    }
 }
