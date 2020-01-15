@@ -12,8 +12,8 @@ import java.time.Duration;
 public class AlarmConsumer {
 
     private Consumer<String, Alarm> consumer;
-    private static final String BOOTSTRAP_SERVERS = "kafka-container:9092";
-    private static final String GROUP_ID = "INSTRUMENTATION_GROUP";
+    private static final String BOOTSTRAP_SERVERS = "kafka:9092";
+    private static final String GROUP_ID = "RESPONSE_GROUP";
     private static final String TOPIC = "Alarms";
 
     public AlarmConsumer () {
