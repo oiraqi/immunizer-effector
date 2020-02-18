@@ -1,2 +1,2 @@
-Premain-Class: org.immunizer.instrumentation.response.ResponseAgent
-Boot-Class-Path: .:../immunizer-response/framework/build/libs/agent-libs-1.0.jar
+Premain-Class: org.immunizer.touchpoint.effector.EffectorAgent
+Boot-Class-Path: .:../immunizer-effector/framework/build/libs/agent-libs-1.0.jar

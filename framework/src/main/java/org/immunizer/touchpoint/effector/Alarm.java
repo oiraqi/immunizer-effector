@@ -1,4 +1,4 @@
-package org.immunizer.instrumentation.response;
+package org.immunizer.touchpoint.effector;
 
 public class Alarm {
 

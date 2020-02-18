@@ -7,6 +7,7 @@ This is the Java implementation of the Response Microagent of [Immunizer: The Co
 - [Acquisition Microservice](https://github.com/oiraqi/immunizer-acquisition)
 - [Analysis Microservice](https://github.com/oiraqi/immunizer-analysis)
 - [Collaboration Microservice](https://github.com/oiraqi/immunizer-collaboration)
+- [Dashboard Microservice](https://github.com/oiraqi/immunizer-dashboard)
 
 ## Dependencies
 

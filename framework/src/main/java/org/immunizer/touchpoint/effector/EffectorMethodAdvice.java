@@ -1,10 +1,10 @@
-package org.immunizer.instrumentation.response;
+package org.immunizer.touchpoint.effector;
 
 import com.google.common.hash.Hashing;
 
 import net.bytebuddy.asm.Advice;
 
-public class ResponseMethodAdvice {
+public class EffectorMethodAdvice {
 
     private static AlarmManager alarmManager = AlarmManager.getSingleton();
 

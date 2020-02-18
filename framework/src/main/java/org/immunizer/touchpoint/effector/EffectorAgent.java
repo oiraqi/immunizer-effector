@@ -1,4 +1,4 @@
-package org.immunizer.instrumentation.response;
+package org.immunizer.touchpoint.effector;
 
 import java.lang.instrument.Instrumentation;
 import java.time.Duration;
@@ -12,7 +12,7 @@ import static net.bytebuddy.matcher.ElementMatchers.*;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 
-public class ResponseAgent {
+public class EffectorAgent {
 	public static void premain(String arg, Instrumentation inst) throws Exception {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Response Microagent Launched!");
@@ -38,9 +38,9 @@ public class ResponseAgent {
 								narrowable = narrowable.or(named(record.value().getFullyQualifiedClassName()));
 							}
 							if (extendable == null) {
-								extendable = narrowable.transform(new ResponseMethodTransformer(named(record.value().getName())));
+								extendable = narrowable.transform(new EffectorMethodTransformer(named(record.value().getName())));
 							} else {
-								extendable = extendable.transform(new ResponseMethodTransformer(named(record.value().getName())));
+								extendable = extendable.transform(new EffectorMethodTransformer(named(record.value().getName())));
 							}
 							
 						}

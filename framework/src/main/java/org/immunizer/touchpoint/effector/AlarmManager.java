@@ -1,4 +1,4 @@
-package org.immunizer.instrumentation.response;
+package org.immunizer.touchpoint.effector;
 
 import java.util.HashMap;
 import java.util.Vector;

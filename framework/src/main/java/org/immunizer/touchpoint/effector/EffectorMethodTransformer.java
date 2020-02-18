@@ -1,4 +1,4 @@
-package org.immunizer.instrumentation.response;
+package org.immunizer.touchpoint.effector;
 
 import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.utility.JavaModule;
@@ -12,11 +12,11 @@ import net.bytebuddy.matcher.ElementMatcher.Junction;
 
 import static net.bytebuddy.matcher.ElementMatchers.*;
 
-class ResponseMethodTransformer implements Transformer {
+class EffectorMethodTransformer implements Transformer {
 
     Junction<? super MethodDescription> matcher;
 
-    public ResponseMethodTransformer(Junction<? super MethodDescription> matcher) {
+    public EffectorMethodTransformer(Junction<? super MethodDescription> matcher) {
         ElementMatcher<Iterable<? extends ParameterDescription>> parameterMatcher = parameterDescriptions -> {
             return (parameterDescriptions != null && parameterDescriptions.iterator().hasNext());
         };
@@ -28,6 +28,6 @@ class ResponseMethodTransformer implements Transformer {
     public DynamicType.Builder<?> transform(final DynamicType.Builder<?> builder, final TypeDescription typeDescription,
             final ClassLoader classLoader, final JavaModule module) {
 
-        return builder.method(matcher).intercept(Advice.to(ResponseMethodAdvice.class));
+        return builder.method(matcher).intercept(Advice.to(EffectorMethodAdvice.class));
     }
 }
