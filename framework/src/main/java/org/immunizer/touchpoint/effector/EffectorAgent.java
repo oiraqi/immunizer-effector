@@ -15,7 +15,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 public class EffectorAgent {
 	public static void premain(String arg, Instrumentation inst) throws Exception {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-		System.out.println("Response Microagent Launched!");
+		System.out.println("Effector Microagent Launched!");
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		
 		AlarmManager alarmManager = AlarmManager.getSingleton();
