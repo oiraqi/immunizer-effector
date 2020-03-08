@@ -1,4 +1,4 @@
-package org.immunizer.touchpoint.effector;
+package org.immunizer.microagents.effector;
 
 import java.lang.instrument.Instrumentation;
 import java.time.Duration;

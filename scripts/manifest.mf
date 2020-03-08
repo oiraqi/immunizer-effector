@@ -1,2 +1,2 @@
-Premain-Class: org.immunizer.touchpoint.effector.EffectorAgent
+Premain-Class: org.immunizer.microagents.effector.EffectorAgent
 Boot-Class-Path: .:../immunizer-effector/framework/build/libs/agent-libs-1.0.jar

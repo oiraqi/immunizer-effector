@@ -1,4 +1,4 @@
-package org.immunizer.touchpoint.effector;
+package org.immunizer.microagents.effector;
 
 import java.util.HashMap;
 import java.util.Vector;

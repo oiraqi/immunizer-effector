@@ -1,4 +1,4 @@
-package org.immunizer.touchpoint.effector;
+package org.immunizer.microagents.effector;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -25,7 +25,7 @@ public class AlarmConsumer {
         props.setProperty("auto.commit.interval.ms", "1000");
         props.put("session.timeout.ms", "30000");
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.setProperty("value.deserializer", "org.immunizer.touchpoint.effector.AlarmDeserializer");
+        props.setProperty("value.deserializer", "org.immunizer.microagents.effector.AlarmDeserializer");
 
         consumer = new KafkaConsumer<String, Alarm>(props);
         Collection<String> topics = Collections.singletonList(TOPIC);        

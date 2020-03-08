@@ -1,4 +1,4 @@
-package org.immunizer.touchpoint.effector;
+package org.immunizer.microagents.effector;
 
 import org.apache.kafka.common.serialization.Deserializer;
 import com.google.gson.Gson;
