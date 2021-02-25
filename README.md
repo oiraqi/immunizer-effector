@@ -1,6 +1,6 @@
 # Response Microagent
 
-This is the Java implementation of the Effector Microagent of [Immunizer: The Collaborative Cloud-based Unsupervised Software Immunity Framework](https://github.com/oiraqi/immunizer)
+This is the Java implementation of the Effector Microagent of [Immunizer: A Scalable Loosely-Coupled Self-Protecting Software Framework using Adaptive Microagents and Parallelized Microservices](https://github.com/oiraqi/immunizer)
 
 ## Siblings
 ### Autonomic Protection Microagents
@@ -11,7 +11,6 @@ This is the Java implementation of the Effector Microagent of [Immunizer: The Co
 - [Analysis Microservice](https://github.com/oiraqi/immunizer-analyze)
 - [Planning Microservice](https://github.com/oiraqi/immunizer-plan)
 - [Execution Microservice](https://github.com/oiraqi/immunizer-execute)
-- [Collaboration Microservice](https://github.com/oiraqi/immunizer-collaborate)
 - [Dashboard Microservice](https://github.com/oiraqi/immunizer-dashboard)
 
 ## Dependencies
