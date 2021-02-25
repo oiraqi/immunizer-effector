@@ -12,7 +12,7 @@ import static net.bytebuddy.matcher.ElementMatchers.*;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 
-public class EffectorAgent {
+public class Effector {
 	public static void premain(String arg, Instrumentation inst) throws Exception {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Effector Microagent Launched!");
