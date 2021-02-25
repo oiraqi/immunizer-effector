@@ -13,7 +13,7 @@ public class AlarmConsumer {
 
     private Consumer<String, Alarm> consumer;
     private static final String BOOTSTRAP_SERVERS = "kafka:9092";
-    private static final String GROUP_ID = "RESPONSE_GROUP";
+    private static final String GROUP_ID = "Effector";
     private static final String TOPIC = "Alarms";
 
     public AlarmConsumer () {
@@ -28,7 +28,7 @@ public class AlarmConsumer {
         props.setProperty("value.deserializer", "org.immunizer.microagents.effector.AlarmDeserializer");
 
         consumer = new KafkaConsumer<String, Alarm>(props);
-        Collection<String> topics = Collections.singletonList(TOPIC);        
+        Collection<String> topics = Collections.singletonList(TOPIC + '/' + System.getProperty("swid"));        
         consumer.subscribe(topics);
         consumer.seekToBeginning(Collections.emptyList());
     }
