@@ -12,11 +12,11 @@ import net.bytebuddy.matcher.ElementMatcher.Junction;
 
 import static net.bytebuddy.matcher.ElementMatchers.*;
 
-class EffectorMethodTransformer implements Transformer {
+class MethodTransformer implements Transformer {
 
     Junction<? super MethodDescription> matcher;
 
-    public EffectorMethodTransformer(Junction<? super MethodDescription> matcher) {
+    public MethodTransformer(Junction<? super MethodDescription> matcher) {
         ElementMatcher<Iterable<? extends ParameterDescription>> parameterMatcher = parameterDescriptions -> {
             return (parameterDescriptions != null && parameterDescriptions.iterator().hasNext());
         };
@@ -28,6 +28,6 @@ class EffectorMethodTransformer implements Transformer {
     public DynamicType.Builder<?> transform(final DynamicType.Builder<?> builder, final TypeDescription typeDescription,
             final ClassLoader classLoader, final JavaModule module) {
 
-        return builder.method(matcher).intercept(Advice.to(EffectorMethodAdvice.class));
+        return builder.method(matcher).intercept(Advice.to(MethodAdvice.class));
     }
 }

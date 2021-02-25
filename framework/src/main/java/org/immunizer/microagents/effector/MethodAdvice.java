@@ -4,7 +4,7 @@ import com.google.common.hash.Hashing;
 
 import net.bytebuddy.asm.Advice;
 
-public class EffectorMethodAdvice {
+public class MethodAdvice {
 
     private static AlarmManager alarmManager = AlarmManager.getSingleton();
 
@@ -18,7 +18,7 @@ public class EffectorMethodAdvice {
             sb.append(stackElement.toString());
             sb.append("\n");
         }
-        int callStackId = Math.abs(Hashing.adler32().hashBytes(sb.toString().getBytes()).asInt());
+        String callStackId = Hashing.adler32().hashBytes(sb.toString().getBytes()).toString();
         if (alarmManager.isAttack(callStackId, params)) {
             throw new Exception();
         }

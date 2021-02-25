@@ -38,9 +38,9 @@ public class Effector {
 								narrowable = narrowable.or(named(record.value().getFullyQualifiedClassName()));
 							}
 							if (extendable == null) {
-								extendable = narrowable.transform(new EffectorMethodTransformer(named(record.value().getName())));
+								extendable = narrowable.transform(new MethodTransformer(named(record.value().getName())));
 							} else {
-								extendable = extendable.transform(new EffectorMethodTransformer(named(record.value().getName())));
+								extendable = extendable.transform(new MethodTransformer(named(record.value().getName())));
 							}
 							
 						}

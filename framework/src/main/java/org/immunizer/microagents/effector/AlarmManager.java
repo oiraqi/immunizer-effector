@@ -34,7 +34,7 @@ public class AlarmManager {
         return alarms.containsKey(callStackId);
     }
 
-    public boolean isAttack(int callStackId, Object[] params) {
+    public boolean isAttack(String callStackId, Object[] params) {
         // Vector<byte[][]> signatures = alarms.get(callStackId);
         return false;
     }
